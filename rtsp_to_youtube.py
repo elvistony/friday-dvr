@@ -13,7 +13,7 @@ def read_config():
     config = configparser.ConfigParser()
     config.read(CONFIG_FILE)
     global RETRY_INTERVAL 
-    RETRY_INTERVAL = config['DEFAULT']['retry_interval']
+    RETRY_INTERVAL = int(config['DEFAULT']['retry_interval'])
     return config
 
 def is_stream_up(rtsp_url):
