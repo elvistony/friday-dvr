@@ -153,7 +153,7 @@ def create_local_writer(camera_name, max_file_size):
 def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, camera_name):
     stream = CamGear(source=rtsp_url, stream_mode=False, logging=_LOGGING).start()
 
-output_params = {
+    output_params = {
         "-vcodec": "libx264",
         "-preset": "ultrafast",  # Use ultrafast preset for least CPU usage
         "-tune": "zerolatency",
