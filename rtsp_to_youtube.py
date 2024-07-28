@@ -68,7 +68,7 @@ def create_local_writer(camera_name, max_file_size):
         "-segment_time": str(max_file_size * 60),
         "-reset_timestamps": "1"
     }
-    local_writer = WriteGear(output=os.path.join(output_dir, time_filename), logging=_LOGGING, **local_output_params)
+    local_writer = WriteGear(output_filename=os.path.join(output_dir, time_filename), logging=_LOGGING, **local_output_params)
     return local_writer
 
 def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, camera_name):
@@ -109,7 +109,7 @@ def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, cam
     # }
 
     youtube_url = f"rtmp://a.rtmp.youtube.com/live2/{youtube_key}"
-    writer = WriteGear(output=youtube_url, logging=_LOGGING, **output_params)
+    writer = WriteGear(output_filename=youtube_url, logging=_LOGGING, **output_params)
 
     local_writer = create_local_writer(camera_name, max_file_size) if local_recording else None
 
@@ -147,7 +147,7 @@ def create_local_writer(camera_name, max_file_size):
         "-segment_time": str(max_file_size * 60),
         "-reset_timestamps": "1"
     }
-    local_writer = WriteGear(output=os.path.join(output_dir, 'output'), logging=_LOGGING, **local_output_params)
+    local_writer = WriteGear(output_filename=os.path.join(output_dir, 'output'), logging=_LOGGING, **local_output_params)
     return local_writer
 
 def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, camera_name):
@@ -177,7 +177,7 @@ def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, cam
     }
 
     youtube_url = f"rtmp://a.rtmp.youtube.com/live2/{youtube_key}"
-    writer = WriteGear(output=youtube_url, logging=_LOGGING, **output_params)
+    writer = WriteGear(output_filename=youtube_url, logging=_LOGGING, **output_params)
 
     local_writer = create_local_writer(camera_name, max_file_size) if local_recording else None
 
