@@ -166,15 +166,15 @@ def stream_and_record(rtsp_url, youtube_key, local_recording, max_file_size, cam
         "-f": "flv",
     }
 
-    output_params = {
-        "-clones": ["-f", "lavfi", "-i", "anullsrc"],  # Add fake audio
-        "-vcodec": "libx264",
-        "-preset": "medium",
-        "-b:v": "4500k",  # Adjust bitrate as needed
-        "-bufsize": "512k",
-        "-pix_fmt": "yuv420p",
-        "-f": "flv",
-    }
+    # output_params = {
+    #     "-clones": ["-f", "lavfi", "-i", "anullsrc"],  # Add fake audio
+    #     "-vcodec": "libx264",
+    #     "-preset": "medium",
+    #     "-b:v": "4500k",  # Adjust bitrate as needed
+    #     "-bufsize": "512k",
+    #     "-pix_fmt": "yuv420p",
+    #     "-f": "flv",
+    # }
 
     youtube_url = f"rtmp://a.rtmp.youtube.com/live2/{youtube_key}"
     writer = WriteGear(output_filename=youtube_url, logging=_LOGGING, **output_params)
